@@ -1,28 +1,38 @@
 .App {
   text-align: center;
   background-color: #282c34;
+  color: white;
   height: 100vh;
 }
 
 .App-header {
- 
-  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-content {
-  color: white;
-  display: flex;
+  display: grid;
   column-gap: 20px;
   text-align: center;
+  grid-template-columns: 1fr 1fr;
 }
 
 .orange {
   color: orangered;
+}
+.rating-box{
+  border: 1px solid white;
+  margin-top: 20px;
+  padding: 20px;
+}
+.purple{
+  color: purple;
+}
+.rating-box > .fa-star{
+  cursor: pointer;
+  font-size: 20px;
 }
 
