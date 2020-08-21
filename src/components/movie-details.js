@@ -6,7 +6,7 @@ function MovieDetails(props) {
     
     const [highlighted,setHighlighted] = useState(-1)
     //const [mov,SetMovie] = useState(props.movie)
-    const mov = props.movie;
+    const mov = props.movie
     const highLightRate = high => evt => {
         setHighlighted(high)
     }
@@ -36,10 +36,9 @@ function MovieDetails(props) {
     .then(resp => props.updateDetails(resp))
     .catch(error => console.log())
     }
-    
     return (
         <React.Fragment>
-            { mov ? (
+            {mov ? (
             <div>
                 <h5>{mov.title}</h5>
                 <p>{mov.description}</p> 
@@ -61,7 +60,7 @@ function MovieDetails(props) {
                 }
                 </div>
             </div>
-         ) : null }
+            ) : null}
         </React.Fragment>
     );
 }
