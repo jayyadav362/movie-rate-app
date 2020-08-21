@@ -47,8 +47,6 @@ function App() {
   const addMovie = movie => {
     setEditedMovie({title: '',description: ''})
     setSelectedMovie(null)
-    console.log('click')
-
   }
 
   const createMovie = movie => {
