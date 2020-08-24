@@ -20,5 +20,15 @@ export class API{
             },
             body: JSON.stringify(body)
         }).then(resp => resp.json())
-    }  
+    } 
+    
+    static deleteMovie(mov){
+        return fetch(`http://127.0.0.1:8000/api/movie/${mov}/` ,{
+            method: "Delete",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token
+            }
+        })
+    } 
 }

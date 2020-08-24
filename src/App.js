@@ -7,7 +7,7 @@ import MovieForm from './components/movie-form';
 function App() {
 
     const [movies, setMovies] = useState([]);
-    const [selectedMovie, setSelectedMovie] = useState([null]);
+    const [selectedMovie, setSelectedMovie] = useState(null);
     const [editedMovie , setEditedMovie] = useState(null)
 
     useEffect(() => {
@@ -54,19 +54,27 @@ function App() {
     setMovies(newMov);
   }
 
+  const removeClicked = movie => {
+    const newMovie = movies.filter(mov => mov.id !== movie.id );
+    setMovies(newMovie);
+  }
+
   return (
-    <div className="App">
-      <div className="App-content">
-        <div>
-        <MovieList movies={movies} movieClicked={loadMovie} editClicked ={editClicked}/>
-        <br/>
-        <button type="button" onClick={addMovie}>Add Movie</button>
+    <div className="container mt-3">
+      <div className="row">
+
+        <div className="col-lg-4 mx-auto">
+        <MovieList movies={movies} movieClicked={loadMovie} editClicked ={editClicked} removeClicked={removeClicked}/>
+        <button type="button" className="btn btn-success btn-block mt-2" onClick={addMovie}>Add Movie</button>
         </div>
+
+        <div className="col-lg-6 mx-auto">
         <MovieDetails movie={selectedMovie}  updateDetails={loadMovie}/>
-        
         {editedMovie ?
         <MovieForm movie={editedMovie} updateMovie={updateMovie} createMovie={createMovie} />
         :null}
+        </div>
+
       </div>
     </div>
   );
